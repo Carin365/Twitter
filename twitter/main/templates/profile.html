@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% if user.is_authenticated %}
+		{% if user != user %}
+		<h2>{{ user.get_profile.name }} (@{{ user.get_profile.name }})</h2>
+		<h3>{{ user.get_profile.location }}</h3>
+		<p>
+			{{ profile.frase|linebreaksbr }}
+		</p><p>
+			Joined on {{ user.date_joined }}<br>
+			Email: <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+		</p>
+			<form action="/twitter/follow/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="user" value="{{ user.username }}">
+				<p>
+					{% if following %}
+						<input class="btn btn-danger" type="submit" value="Dejar de seguir">
+					{% else %}
+						<input class="btn btn-success" type="submit" value="Seguir">
+					{% endif %}
+				</p>
+			</form>
+		{% endif %}
+		{% endif %}
+
+
+</body>
+</html>

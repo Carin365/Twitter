@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title> Add User </title>
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+#header{
+	width: 1349px;
+	height: 50px;
+	background-color: #252525;
+}
+.logo{
+	background: url({{ STATIC_URL }}logoblanco.png) no-repeat;
+}
+</style>
+</head>
+<body>
+	<div id="header" class="logo"></div>
+	<table border="1" align="center" width="800" class="content">
+
+
+	<tr> <td> </td>  </tr> 
+	<tr> <td align="center"> Unete hoy a My twitter </td>  </tr> 
+	<tr> <td>
+		<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit"/>
+	</form>
+	
+	 </td>  </tr>
+<tr> <td> <a href="{% url home %}">Principal</a> </td>  </tr> 
+	    </table>
+</body>
+</html>

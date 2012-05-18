@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Register User</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $("#id_birthday").datepicker();
+  });
+  </script>
+<style type="text/css">
+#header{
+	width: 1349px;
+	height: 50px;
+	background-color: #252525;
+}
+.content{
+	width: 1349px;
+	height: 545px;
+	background-image: url({{ STATIC_URL }}fondo.jpg);
+}
+.tablee{
+	background-color: white;
+}
+.logo{
+	background: url({{ STATIC_URL }}logoblanco.png) no-repeat;
+}
+.img1{
+	background: url({{ STATIC_URL }}nocturno.png) no-repeat;
+}
+.inciarsesion{
+	background-image: url({{ STATIC_URL }}iniciar.png) no-repeat;
+	width: 106px;
+	height: ;
+}
+</style>
+</head>
+<body>
+<div id="header" class="logo"></div>
+<table border="1" align="center" width="800">
+	<tr> <td align="center"> Register </td> </tr>
+	<tr> <td align="center"> 
+		<form align="center" method="POST" >
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input href="{% url home %}" type="submit" value="Register"/>
+	 </td></tr>
+	 <tr> <td> <a href="{% url LoginRequest %}">Home</a> </td> </tr>
+</table>
+</body>
+</html>

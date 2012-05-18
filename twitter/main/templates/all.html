@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title></title>
+
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.1.min.js"></script>
+		<script type="text/javascript"></script>
+		<script type="text/javascript" src="js/prototype.js"></script>
+		<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/lightbox.js"></script>
+		<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+
+<style type="text/css">
+#header{
+	
+	height: 50px;
+	background-color: #252525;
+
+}
+#head{
+	
+	height: 70px;
+	background-color: transparent;
+
+}
+.content{
+	
+	background-image: url({{ STATIC_URL }}fond.jpg);
+}
+.tablee{
+	background-color: white;
+}
+.logo{
+	background: url({{ STATIC_URL }}logoblanco.png) no-repeat;
+}
+.profile{
+	background: url({{ STATIC_URL }}perf.gif) no-repeat;
+}
+.fon2{
+
+	background: url({{ STATIC_URL }}fond2.jpg);
+}
+.ima{
+
+	background: url({{ STATIC_URL }}ima.gif);
+}
+.img1{
+	background: url({{ STATIC_URL }}nocturno.png) no-repeat;
+}
+.inciarsesion{
+	background-image: url({{ STATIC_URL }}iniciar.png) no-repeat;
+	width: 106px;
+	height: ;
+}
+</style>
+</head>
+<body>
+	<table border="3">
+
+	<tr>
+		<td width="1290" id="header" class="logo" > </td> 
+		<td width="100" id="header" <p><a href="/user/sesion/">Back</a> </p> </td> 
+		<td width="80" id="header"{% if user.is_authenticated %}<p> <a href="/user/logout">Logout</a></p>{% else %}<p><a href="/user/login"></a> </p> 
+		{% endif %} </td>
+	</tr> 
+</table>
+<table border="5" width="1337" height="1055" class="content">
+	<tr>
+		<td aling="center">
+		<table aling="center" border="5" width="1040"  class="fon2">
+		<tr>
+			<td>
+			{% for tweet in tweet %}
+			<div>
+			
+					<h3>{{ user.get_profile.name }}</h3>
+					<h3>{{ tweet.status }}</h3>
+					<h3>{{ user.get_profile.created_at }}</h3>
+			</div>
+			{% endfor %}
+			</td>	
+			<td>
+					
+
+					
+				</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+</table>	
+</body>
+</html>

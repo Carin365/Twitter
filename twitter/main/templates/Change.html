@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div><a href="/user/sesion">Back</a></div>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit"/>
+	</form>	
+</body>
+</html>

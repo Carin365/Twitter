@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Register User</title>
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.7.1.min.js"></script>
+<script type="text/javascript"> </script>
+<style type="text/css">
+#header{
+	width: 1349px;
+	height: 50px;
+	background-color: #252525;
+}
+.content{
+	width: 1349px;
+	height: 545px;
+	background-image: url({{ STATIC_URL }}fondo.jpg);
+}
+.tablee{
+	background-color: white;
+}
+.logo{
+	background: url({{ STATIC_URL }}logoblanco.png) no-repeat;
+}
+.img1{
+	background: url({{ STATIC_URL }}nocturno.png) no-repeat;
+}
+.inciarsesion{
+	background-image: url({{ STATIC_URL }}iniciar.png) no-repeat;
+	width: 106px;
+	height: ;
+}
+</style>
+</head>
+<body>
+<div id="header" class="logo"></div>
+<table border="1" align="center" width="800">
+	<tr> <td align="center"> Unete a My twitter</td> </tr>
+	<tr> <td align="center"> 
+		{% block content %}
+			<form action="" method="post">
+				{% csrf_token %}
+				{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}	
+					<div class="Register_div">
+						{% if form.username.errors %}<p class="error">{{ form.username.errors }}</p>{% endif %}
+						<p> <label for="username"{% if form.username.errors %} class="error" {% endif %}>Username:</label> </p>
+						<p> {{ form.username }} </p>
+					</div>
+					<div class="Register_div">
+						{% if form.password.errors %}<p class="error"> {{ form.password.errors }} </p> {% endif %}
+						<p> <label for="password"{% if form.password.errors %} class="error" {% endif %}>Password:</label> </p>
+						<p> {{ form.password }} </p>
+					</div>
+					<p> <input type="submit" alt="register"/> </p>
+			</form>
+		{% endblock %}
+	 </td></tr>
+	 <tr> <td> <a href="{% url home %}">Principal</a> </td> </tr>
+</table>
+</body>
+</html>
